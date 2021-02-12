@@ -1,0 +1,8 @@
+{
+	"name": "TypingAvatars",
+	"version": "1.0.0",
+	"author": "Strencher",
+	"authorId": "415849376598982656",
+	"description": "Shows the Avatars from that users that are currently typing.",
+	"license": "MIT"
+}
