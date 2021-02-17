@@ -28,6 +28,8 @@ export default class TypingAvatars extends Plugin {
                if (FriendsModule.isBlocked(user.id)) return false;
                return true;
             });
+         
+         if (!typingUsers) return res
 
          for (let i = 0; i < typingUsers.length; i++) {
             const childs = res.props.children[1].props.children[i * 2];
