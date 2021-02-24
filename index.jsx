@@ -32,7 +32,7 @@ export default class TypingAvatars extends Plugin {
          if (!typingUsers) return res
 
          for (let i = 0; i < typingUsers.length; i++) {
-            const childs = res.props.children[1].props.children[i * 2];
+            const childs = res?.props?.children?.[1]?.props?.children?.[i * 2];
             if (!Array.isArray(childs?.props?.children)) continue;
             const name = childs.props.children.join('');
             childs.props.children = <div className="typingUser">
