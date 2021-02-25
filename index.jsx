@@ -24,15 +24,17 @@ export default class TypingAvatars extends Plugin {
             .map(id => UserStore.getUser(id))
             .filter(user => {
                if (!user) return false;
-               if (user.id == me) return false;
+               if (user.id === me.id) return false;
                if (FriendsModule.isBlocked(user.id)) return false;
                return true;
             });
          
-         if (!typingUsers) return res
+         const tree = res?.props?.children?.[1]?.props?.children;
+         if (!typingUsers.length || !tree) return res;
 
          for (let i = 0; i < typingUsers.length; i++) {
-            const childs = res?.props?.children?.[1]?.props?.children?.[i * 2];
+            const childs = tree[i * 2];
+
             if (!Array.isArray(childs?.props?.children)) continue;
             const name = childs.props.children.join('');
             childs.props.children = <div className="typingUser">
